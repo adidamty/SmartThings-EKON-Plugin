@@ -20,6 +20,10 @@ How to use this plugin to SmartThings ?
 
 Enjoy :-)
 
+
+
+
+
 Works with Alexa :
 
 Alexa, turn on Air-Conditioner
