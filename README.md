@@ -21,8 +21,8 @@ How to use this plugin to SmartThings ?
 Enjoy :-)
 
 Works with Alexa :
-"Alexa, turn on Air-Conditioner"
-"Alexa, turn off Air-Conditioner"
-"Alexa, set Air-Conditioner to 22 celius"
-"Alexa, set Air-Conditioner to cool"
-"Alexa, set Air-Conditioner to heat"
+Alexa, turn on Air-Conditioner
+Alexa, turn off Air-Conditioner
+Alexa, set Air-Conditioner to 22 celius
+Alexa, set Air-Conditioner to cool
+Alexa, set Air-Conditioner to heat
