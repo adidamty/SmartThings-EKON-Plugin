@@ -19,11 +19,7 @@ How to use this plugin to SmartThings ?
 9. You also can control this device from Alexa \ Google.
 
 Enjoy :-)
-
-
-
-
-
+<br/><br/><br/><br/><br/>
 Works with Alexa :
 
 Alexa, turn on Air-Conditioner
