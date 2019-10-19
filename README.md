@@ -23,11 +23,7 @@ Enjoy :-)
 Works with Alexa :
 
 Alexa, turn on Air-Conditioner
-
 Alexa, turn off Air-Conditioner
-
 Alexa, set Air-Conditioner to 22 celius
-
 Alexa, set Air-Conditioner to cool
-
 Alexa, set Air-Conditioner to heat
