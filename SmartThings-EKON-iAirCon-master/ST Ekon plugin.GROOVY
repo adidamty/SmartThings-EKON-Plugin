@@ -90,7 +90,7 @@ metadata {
             state "refresh", label:'Refresh', action:"refresh"
         }                                            
         valueTile("envTemp", "device.envTemp", width: 2, height: 2) {
-			state("envTemp", label:'${currentValue}�', unit:"Degrees",
+			state("envTemp", label:'${currentValue}째', unit:"Degrees",
 				backgroundColors:[
 					[value: 16, color: "#66ccff"],
 					[value: 17, color: "#66ccff"],
@@ -199,9 +199,9 @@ def setThermostatMode(String name) {
     
     if (value != null) {                	
         sendEvent(name: "thermostatMode", value: name)
-        sendEvent(name: "thermostatSetpoint", value: DEFAULT_THERMOSTAT_SETPOINT, unit: "캟")
-        sendEvent(name: "heatingSetpoint", value: DEFAULT_HEATING_SETPOINT, unit: "캟")        	
-    	sendEvent(name: "coolingSetpoint", value: DEFAULT_COOLING_SETPOINT, unit: "캟")
+        sendEvent(name: "thermostatSetpoint", value: DEFAULT_THERMOSTAT_SETPOINT, unit: "째F")
+        sendEvent(name: "heatingSetpoint", value: DEFAULT_HEATING_SETPOINT, unit: "째F")        	
+    	sendEvent(name: "coolingSetpoint", value: DEFAULT_COOLING_SETPOINT, unit: "째F")
 		setMode(value)
     } else {
         log.warn "'$value' is not a supported mode. Please set one of ${SUPPORTED_MODES_NAMES.join(', ')}"
@@ -365,14 +365,17 @@ def turnOnOrOff(boolean on)
     getStatusIfNeeded()
     def mac = device.currentValue("mac")
 	def url = BASE_URL + "dev/switchHvac/${mac}"
+    def onoffValue
     
     if (on)
     {
     	url += "?on=True";
+        onoffValue = EKON_VALUE_ON
     }
     else
     {
        	url += "?on=False";
+        onoffValue = EKON_VALUE_OFF
     }
         
     log.debug "Get to ${url}"
@@ -388,6 +391,12 @@ def turnOnOrOff(boolean on)
           log.debug "Getting response turnOnOrOff"
           def content = response.data
 		  log.debug "response: ${content}"
+		  
+          if (response.getStatus() == 200)
+          {
+          	  sendEvent(name: "onoff", value: onoffValue)
+              log.debug "send event onoff with value ${onoffValue}"
+          }
 	}
     
     log.debug "HttpGet completed"        
